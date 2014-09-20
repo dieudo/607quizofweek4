@@ -1,11 +1,112 @@
-# History files
-.Rhistory
+#(1)
+min(movies$year)
+#[1] 1893
+s1=subset(movies,year>=1890 & year<=1899)
+nrow(s1)
+#[1] 49 
+s2=subset(movies,year>=1900 & year<=1909)
+nrow(s2)
+#[1] 232
+s3=subset(movies,year>=1910 & year<=1919)
+nrow(s3)
+#[1] 401
+ s4=subset(movies,year>=1920 & year<=1929)
+nrow(s4)
+#[1] 795
+ s5=subset(movies,year>=1930 & year<=1939)
+nrow(s5)
+#[1] 4328
+ s6=subset(movies,year>=1940 & year<=1949)
+ nrow(s6)
+#[1] 4613
+s7=subset(movies,year>=1950 & year<=1959)
+nrow(s7)
+#[1] 5160
+s8=subset(movies,year>=1960 & year<=1969)
+nrow(s8)
+#[1] 5456
+s9=subset(movies,year>=1970 & year<=1979)
+nrow(s9)
+#[1] 6270
+s10=subset(movies,year>=1980 & year<=1989)
+nrow(s10)
+#[1] 7907
+s11=subset(movies,year>=1990 & year<=1999)
+nrow(s11)
+#[1] 12788
+s12=subset(movies,year>=2000 & year<=2009)
+nrow(s12)
+#[1] 10789
+s13=subset(movies,year>=2010 & year<=2019)
+nrow(s13)
 
-# Example code in package build process
-*-Ex.R
 
-# R data files from past sessions
-.Rdata
+#[1] 0
+dec1=nrow(s1)
+dec2=nrow(s2)
+dec3=nrow(s3)
+dec4=nrow(s4)
+dec5=nrow(s5)
+dec6=nrow(s6)
+dec7=nrow(s7)
+dec8=nrow(s8)
+dec9=nrow(s9)
+dec10=nrow(s10)
+dec11=nrow(s11)
+dec12=nrow(s12)
+dec13=nrow(s13)
+dec=c(dec1,dec2,dec3,dec4,dec5,dec6,dec7,dec8,dec9,dec10,dec11,dec12)
+dec
+#[1]    49   232   401   795  4328  4613  5160  5456  6270  7907 12788 10789
+sum(dec)
+#[1] 58788
+names(dec)<-c(1890,1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000)
+dec
+barplot(dec,main="total movie per decade",xlab="decade since 1890")
+#(2)
+actionR<-subset(movies,Action==1)
+AaverageRating<-mean(actionR$rating)
+animationR<-subset(movies,Animation==1)
+ AaverageAnimation<-mean(animationR$rating)
+ AverComedy<-subset(movies,Comedy==1)
+ AverageComedyR<-mean(AverComedy$rating)
+ AverDrama<-subset(movies,Drama==1)
+ AaverdramaR<-mean(AverDrama$rating)
+ AverDoc<-subset(movies,Documentary==1)
+ AaverdocR<-mean(AverDoc$rating)
+AverRomance<-subset(movies,Romance==1)
+AaverRomanR<-mean(AverRomance$rating)
+AverShort<-subset(movies,Short==1)
+ AvershortR<-mean(AverShort$rating)
+ AverAction<-subset(movies,Action==1)
+ AverActionR<-mean(AverAction$rating)
+ Average_Rating_genre<-c(AverActionR,AaverageAnimation,AaverageComedy,AaverdramaR,AaverRomanR,AvershortR)
+AverageComedy<-subset(movies,Comedy==1)
+ AverageComedyR<-mean(AverageComedy)
+Average_Rating_genre<-c(AverActionR,AaverageAnimation,AverageComedyR,AaverdramaR,AaverdocR,AaverRomanR,AvershortR)
+ names(Average_Rating_genre)<-c( "action","animation","comedy","drama","documentary","romance","short")
+Average_Rating_genre
+action   animation      comedy       drama documentary     romance       short 
+#5.292022    6.583686    5.955492    6.153684    6.650576    6.163997    6.481423
+#(3)
+plot(movies$length,movies$ratings,xlab="length",ylab="ratings")
+#no apparent relationship between those 2 variables)
+#(4)
+plot(movies$length,movies$Action,xlab="Action",ylab="length")
+# yes
+plot(movies$length,movies$Animation,xlab="Animation",ylab="length")
+plot(movies$length,movies$Comedy,xlab="Comedy",ylab="length")
+plot(movies$length,movies$Romance,xlab="Romance",ylab="length")
+plot(movies$length,movies$Documetary,xlab="Documentary",ylab="length")
+plot(movies$length,movies$Drama,xlab="Drama",ylab="length")
+plot(movies$length,movies$Short,xlab="Short",ylab="length")
 
-# RStudio files
-.Rproj.user/
+#(5) 
+summary(movies)
+ratings and budget
+
+
+                                           
+
+
+
